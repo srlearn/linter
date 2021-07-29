@@ -1,0 +1,2 @@
+friends(person1,person2).
+Bad Data.

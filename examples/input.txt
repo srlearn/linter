@@ -1,0 +1,3 @@
+smokes(person1).
+friends(person1,person2).
+friends(person2,person1).
