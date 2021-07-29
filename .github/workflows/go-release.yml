@@ -1,0 +1,32 @@
+name: Relase Build
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  generate:
+    name: Build Release
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 👀 Checkout
+        uses: actions/checkout@v2
+
+      - name: 🐿️ Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: 🦌 Set up ANTLR
+        run: sudo apt-get install antlr4
+
+      - name:  🏗️ Build Linter
+        run: make linter
+
+      - name: 📤 Upload Artifacts
+        uses: skx/github-action-publish-binaries@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: 'linter'

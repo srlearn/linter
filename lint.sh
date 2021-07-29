@@ -8,8 +8,14 @@
 # USAGE:
 #   ./lint.sh input.txt
 
+TOKENS=$(./linter -tokens -file=$1 2>&1)
 PARSE=$(./linter -file=$1 2>&1)
 EXIT=0
+
+if [[ ! -z $TOKENS ]]; then
+    echo "$TOKENS"
+    EXIT=2
+fi
 
 if [[ ! -z $PARSE ]]; then
     echo "$PARSE"
