@@ -3,6 +3,8 @@
 This defines a simple grammar (`cmd/ILPLang.g4`) and a command-line
 tool which can be used to lint for problems in dataset formatting.
 
+[![Test Parsing](https://github.com/srlearn/linter/actions/workflows/package-test.yml/badge.svg)](https://github.com/srlearn/linter/actions/workflows/package-test.yml)
+
 ## Usage
 
 The target is a `linter` binary to help point out issues when tokenizing
