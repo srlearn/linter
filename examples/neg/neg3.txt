@@ -1,0 +1,3 @@
+knows(a1,b2).
+
+knows(b3,a2).

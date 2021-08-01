@@ -14,15 +14,9 @@ type ILPLangListener interface {
 	// EnterTerm is called when entering the term production.
 	EnterTerm(c *TermContext)
 
-	// EnterLastterm is called when entering the lastterm production.
-	EnterLastterm(c *LasttermContext)
-
 	// ExitStart is called when exiting the start production.
 	ExitStart(c *StartContext)
 
 	// ExitTerm is called when exiting the term production.
 	ExitTerm(c *TermContext)
-
-	// ExitLastterm is called when exiting the lastterm production.
-	ExitLastterm(c *LasttermContext)
 }

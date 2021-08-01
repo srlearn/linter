@@ -32,9 +32,3 @@ func (s *BaseILPLangListener) EnterTerm(ctx *TermContext) {}
 
 // ExitTerm is called when production term is exited.
 func (s *BaseILPLangListener) ExitTerm(ctx *TermContext) {}
-
-// EnterLastterm is called when production lastterm is entered.
-func (s *BaseILPLangListener) EnterLastterm(ctx *LasttermContext) {}
-
-// ExitLastterm is called when production lastterm is exited.
-func (s *BaseILPLangListener) ExitLastterm(ctx *LasttermContext) {}

@@ -1,0 +1,1 @@
+demo(Person1,Person2).

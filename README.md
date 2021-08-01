@@ -19,8 +19,8 @@ friends(person2,person1).
 ```
 
 ```console
-./linter -tokens -file=examples/input.txt
-./linter -tokens -file=examples/input.txt
+./linter -tokens -file=examples/pos/pos1.txt
+./linter -file=examples/pos/pos1.txt
 # (No output for either case)
 ```
 
@@ -35,12 +35,16 @@ Bad Data.
 ```
 
 ```console
-$ ./linter -tokens -file=examples/bad_data.txt
+./linter -tokens -file=examples/neg/neg1.txt
 line 2:0 token recognition error at: 'B'
 line 2:3 token recognition error at: ' '
 line 2:4 token recognition error at: 'D'
-$ ./linter -file=examples/bad_datainput.txt
+./linter -file=examples/neg/neg1.txt
 line 2:0 token recognition error at: 'B'
+line 2:3 token recognition error at: ' '
+line 2:4 token recognition error at: 'D'
+line 2:5 missing '(' at 'ata'
+line 2:8 mismatched input '.' expecting {')', ','}
 ```
 
 ## Building
@@ -63,8 +67,7 @@ make linter
 ## Limitations
 
 This grammar is extremely conservative currently: the only tokens
-allowed are lowercase characters and underscores, and everything
-must start with a lowercase character.
+allowed are lowercase characters, integers, and underscores.
 
 ```prolog
 a(x_1,y_1).

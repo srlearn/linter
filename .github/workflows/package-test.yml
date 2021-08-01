@@ -1,0 +1,27 @@
+name: Test Parsing
+on:
+  push:
+    branches: [ main ]
+    tags: '*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test Parsing
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 👀 Checkout
+        uses: actions/checkout@v2
+
+      - name: 🐿️ Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: 🦌 Set up ANTLR
+        run: sudo apt-get install antlr4
+
+      - name: ✅ Run Tests
+        run: bash test/test.sh

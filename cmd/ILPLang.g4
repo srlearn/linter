@@ -49,21 +49,12 @@ fragment ALPHANUMERIC
     ;
 
 start
-    : term
-    | lastterm
-    | EOF
+    : (term)* EOF
     ;
 
 // This recognizes both relations and entities.
 // The grammar would be more generally useful if this recognized entities and
 // relations on those entities.
-OBJECT: SMALL_LETTER (ALPHANUMERIC)*;
+OBJECT: (ALPHANUMERIC)+;
 
-term
-    : OBJECT LPAREN OBJECT (COMMA OBJECT)* RPAREN PERIOD NEWLINE
-    ;
-
-// The 'lastterm' is not required to have a newline after it, but can have an end-of-file.
-lastterm
-    : OBJECT LPAREN OBJECT (COMMA OBJECT)* RPAREN PERIOD EOF
-    ;
+term: OBJECT LPAREN OBJECT (COMMA OBJECT)* RPAREN PERIOD NEWLINE;

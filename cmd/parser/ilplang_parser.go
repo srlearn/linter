@@ -16,23 +16,18 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 8, 42, 4,
-	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 3, 2, 3, 2, 3, 2, 5, 2, 12, 10, 2, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 19, 10, 3, 12, 3, 14, 3, 22, 11, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 7, 4, 33, 10, 4, 12,
-	4, 14, 4, 36, 11, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 2, 2, 5, 2, 4, 6, 2,
-	2, 2, 42, 2, 11, 3, 2, 2, 2, 4, 13, 3, 2, 2, 2, 6, 27, 3, 2, 2, 2, 8, 12,
-	5, 4, 3, 2, 9, 12, 5, 6, 4, 2, 10, 12, 7, 2, 2, 3, 11, 8, 3, 2, 2, 2, 11,
-	9, 3, 2, 2, 2, 11, 10, 3, 2, 2, 2, 12, 3, 3, 2, 2, 2, 13, 14, 7, 8, 2,
-	2, 14, 15, 7, 3, 2, 2, 15, 20, 7, 8, 2, 2, 16, 17, 7, 5, 2, 2, 17, 19,
-	7, 8, 2, 2, 18, 16, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2,
-	20, 21, 3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 7,
-	4, 2, 2, 24, 25, 7, 6, 2, 2, 25, 26, 7, 7, 2, 2, 26, 5, 3, 2, 2, 2, 27,
-	28, 7, 8, 2, 2, 28, 29, 7, 3, 2, 2, 29, 34, 7, 8, 2, 2, 30, 31, 7, 5, 2,
-	2, 31, 33, 7, 8, 2, 2, 32, 30, 3, 2, 2, 2, 33, 36, 3, 2, 2, 2, 34, 32,
-	3, 2, 2, 2, 34, 35, 3, 2, 2, 2, 35, 37, 3, 2, 2, 2, 36, 34, 3, 2, 2, 2,
-	37, 38, 7, 4, 2, 2, 38, 39, 7, 6, 2, 2, 39, 40, 7, 2, 2, 3, 40, 7, 3, 2,
-	2, 2, 5, 11, 20, 34,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 8, 29, 4,
+	2, 9, 2, 4, 3, 9, 3, 3, 2, 7, 2, 8, 10, 2, 12, 2, 14, 2, 11, 11, 2, 3,
+	2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 7, 3, 20, 10, 3, 12, 3, 14, 3, 23,
+	11, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 4, 2, 4, 2, 2, 2, 28, 2, 9,
+	3, 2, 2, 2, 4, 14, 3, 2, 2, 2, 6, 8, 5, 4, 3, 2, 7, 6, 3, 2, 2, 2, 8, 11,
+	3, 2, 2, 2, 9, 7, 3, 2, 2, 2, 9, 10, 3, 2, 2, 2, 10, 12, 3, 2, 2, 2, 11,
+	9, 3, 2, 2, 2, 12, 13, 7, 2, 2, 3, 13, 3, 3, 2, 2, 2, 14, 15, 7, 8, 2,
+	2, 15, 16, 7, 3, 2, 2, 16, 21, 7, 8, 2, 2, 17, 18, 7, 5, 2, 2, 18, 20,
+	7, 8, 2, 2, 19, 17, 3, 2, 2, 2, 20, 23, 3, 2, 2, 2, 21, 19, 3, 2, 2, 2,
+	21, 22, 3, 2, 2, 2, 22, 24, 3, 2, 2, 2, 23, 21, 3, 2, 2, 2, 24, 25, 7,
+	4, 2, 2, 25, 26, 7, 6, 2, 2, 26, 27, 7, 7, 2, 2, 27, 5, 3, 2, 2, 2, 4,
+	9, 21,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -45,7 +40,7 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"start", "term", "lastterm",
+	"start", "term",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -86,9 +81,8 @@ const (
 
 // ILPLangParser rules.
 const (
-	ILPLangParserRULE_start    = 0
-	ILPLangParserRULE_term     = 1
-	ILPLangParserRULE_lastterm = 2
+	ILPLangParserRULE_start = 0
+	ILPLangParserRULE_term  = 1
 )
 
 // IStartContext is an interface to support dynamic dispatch.
@@ -129,28 +123,31 @@ func NewStartContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *StartContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *StartContext) Term() ITermContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITermContext)(nil)).Elem(), 0)
+func (s *StartContext) EOF() antlr.TerminalNode {
+	return s.GetToken(ILPLangParserEOF, 0)
+}
+
+func (s *StartContext) AllTerm() []ITermContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ITermContext)(nil)).Elem())
+	var tst = make([]ITermContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(ITermContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *StartContext) Term(i int) ITermContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ITermContext)(nil)).Elem(), i)
 
 	if t == nil {
 		return nil
 	}
 
 	return t.(ITermContext)
-}
-
-func (s *StartContext) Lastterm() ILasttermContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ILasttermContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(ILasttermContext)
-}
-
-func (s *StartContext) EOF() antlr.TerminalNode {
-	return s.GetToken(ILPLangParserEOF, 0)
 }
 
 func (s *StartContext) GetRuleContext() antlr.RuleContext {
@@ -176,6 +173,7 @@ func (s *StartContext) ExitRule(listener antlr.ParseTreeListener) {
 func (p *ILPLangParser) Start() (localctx IStartContext) {
 	localctx = NewStartContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 0, ILPLangParserRULE_start)
+	var _la int
 
 	defer func() {
 		p.ExitRule()
@@ -193,30 +191,24 @@ func (p *ILPLangParser) Start() (localctx IStartContext) {
 		}
 	}()
 
-	p.SetState(9)
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(7)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 0, p.GetParserRuleContext()) {
-	case 1:
-		p.EnterOuterAlt(localctx, 1)
+	_la = p.GetTokenStream().LA(1)
+
+	for _la == ILPLangParserOBJECT {
 		{
-			p.SetState(6)
+			p.SetState(4)
 			p.Term()
 		}
 
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(7)
-			p.Lastterm()
-		}
-
-	case 3:
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(8)
-			p.Match(ILPLangParserEOF)
-		}
-
+		p.SetState(9)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+	}
+	{
+		p.SetState(10)
+		p.Match(ILPLangParserEOF)
 	}
 
 	return localctx
@@ -335,204 +327,46 @@ func (p *ILPLangParser) Term() (localctx ITermContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(11)
-		p.Match(ILPLangParserOBJECT)
-	}
-	{
 		p.SetState(12)
-		p.Match(ILPLangParserLPAREN)
+		p.Match(ILPLangParserOBJECT)
 	}
 	{
 		p.SetState(13)
-		p.Match(ILPLangParserOBJECT)
-	}
-	p.SetState(18)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
-
-	for _la == ILPLangParserCOMMA {
-		{
-			p.SetState(14)
-			p.Match(ILPLangParserCOMMA)
-		}
-		{
-			p.SetState(15)
-			p.Match(ILPLangParserOBJECT)
-		}
-
-		p.SetState(20)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(21)
-		p.Match(ILPLangParserRPAREN)
-	}
-	{
-		p.SetState(22)
-		p.Match(ILPLangParserPERIOD)
-	}
-	{
-		p.SetState(23)
-		p.Match(ILPLangParserNEWLINE)
-	}
-
-	return localctx
-}
-
-// ILasttermContext is an interface to support dynamic dispatch.
-type ILasttermContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsLasttermContext differentiates from other interfaces.
-	IsLasttermContext()
-}
-
-type LasttermContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyLasttermContext() *LasttermContext {
-	var p = new(LasttermContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = ILPLangParserRULE_lastterm
-	return p
-}
-
-func (*LasttermContext) IsLasttermContext() {}
-
-func NewLasttermContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *LasttermContext {
-	var p = new(LasttermContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = ILPLangParserRULE_lastterm
-
-	return p
-}
-
-func (s *LasttermContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *LasttermContext) AllOBJECT() []antlr.TerminalNode {
-	return s.GetTokens(ILPLangParserOBJECT)
-}
-
-func (s *LasttermContext) OBJECT(i int) antlr.TerminalNode {
-	return s.GetToken(ILPLangParserOBJECT, i)
-}
-
-func (s *LasttermContext) LPAREN() antlr.TerminalNode {
-	return s.GetToken(ILPLangParserLPAREN, 0)
-}
-
-func (s *LasttermContext) RPAREN() antlr.TerminalNode {
-	return s.GetToken(ILPLangParserRPAREN, 0)
-}
-
-func (s *LasttermContext) PERIOD() antlr.TerminalNode {
-	return s.GetToken(ILPLangParserPERIOD, 0)
-}
-
-func (s *LasttermContext) EOF() antlr.TerminalNode {
-	return s.GetToken(ILPLangParserEOF, 0)
-}
-
-func (s *LasttermContext) AllCOMMA() []antlr.TerminalNode {
-	return s.GetTokens(ILPLangParserCOMMA)
-}
-
-func (s *LasttermContext) COMMA(i int) antlr.TerminalNode {
-	return s.GetToken(ILPLangParserCOMMA, i)
-}
-
-func (s *LasttermContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *LasttermContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *LasttermContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ILPLangListener); ok {
-		listenerT.EnterLastterm(s)
-	}
-}
-
-func (s *LasttermContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(ILPLangListener); ok {
-		listenerT.ExitLastterm(s)
-	}
-}
-
-func (p *ILPLangParser) Lastterm() (localctx ILasttermContext) {
-	localctx = NewLasttermContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, ILPLangParserRULE_lastterm)
-	var _la int
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(25)
-		p.Match(ILPLangParserOBJECT)
-	}
-	{
-		p.SetState(26)
 		p.Match(ILPLangParserLPAREN)
 	}
 	{
-		p.SetState(27)
+		p.SetState(14)
 		p.Match(ILPLangParserOBJECT)
 	}
-	p.SetState(32)
+	p.SetState(19)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == ILPLangParserCOMMA {
 		{
-			p.SetState(28)
+			p.SetState(15)
 			p.Match(ILPLangParserCOMMA)
 		}
 		{
-			p.SetState(29)
+			p.SetState(16)
 			p.Match(ILPLangParserOBJECT)
 		}
 
-		p.SetState(34)
+		p.SetState(21)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(35)
+		p.SetState(22)
 		p.Match(ILPLangParserRPAREN)
 	}
 	{
-		p.SetState(36)
+		p.SetState(23)
 		p.Match(ILPLangParserPERIOD)
 	}
 	{
-		p.SetState(37)
-		p.Match(ILPLangParserEOF)
+		p.SetState(24)
+		p.Match(ILPLangParserNEWLINE)
 	}
 
 	return localctx

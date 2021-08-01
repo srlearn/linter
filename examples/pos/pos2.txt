@@ -1,0 +1,5 @@
+age(id100,1).
+age(id101,2).
+age(id10,2).
+age(id102,4).
+age(id103,2).
