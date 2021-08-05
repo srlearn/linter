@@ -25,3 +25,6 @@ jobs:
 
       - name: ✅ Run Tests
         run: bash test/test.sh
+
+      - name: ✅ Test Make Distribution
+        run: make clean; make distribution

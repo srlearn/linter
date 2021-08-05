@@ -21,12 +21,12 @@ jobs:
       - name: 🦌 Set up ANTLR
         run: sudo apt-get install antlr4
 
-      - name:  🏗️ Build Linter
-        run: make linter
+      - name:  🏗️ Build Distribution
+        run: make clean; make distribution
 
       - name: 📤 Upload Artifacts
         uses: skx/github-action-publish-binaries@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: 'linter'
+          args: 'dist/*'
