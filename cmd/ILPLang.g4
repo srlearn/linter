@@ -48,13 +48,20 @@ fragment ALPHANUMERIC
     | '_'
     ;
 
+FLOAT: (DIGIT)* PERIOD (DIGIT)+ ;
+INTEGER: (DIGIT)+ ;
+
 start
-    : (term)* EOF
+    : (classification_task | regression_task) EOF
     ;
+
+classification_task: (term)* ;
+regression_task: (regression_term)* ;
 
 // This recognizes both relations and entities.
 // The grammar would be more generally useful if this recognized entities and
 // relations on those entities.
 OBJECT: (ALPHANUMERIC)+;
 
-term: OBJECT LPAREN OBJECT (COMMA OBJECT)* RPAREN PERIOD NEWLINE;
+term: OBJECT LPAREN OBJECT (COMMA (OBJECT | INTEGER))* RPAREN PERIOD NEWLINE;
+regression_term: 'regressionExample' LPAREN OBJECT LPAREN OBJECT RPAREN COMMA (FLOAT | INTEGER) RPAREN PERIOD NEWLINE;
