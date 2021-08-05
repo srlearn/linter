@@ -3,9 +3,11 @@
 This defines a simple grammar (`cmd/ILPLang.g4`) and a command-line
 tool which can be used to lint for problems in dataset formatting.
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/srlearn/linter)](https://github.com/srlearn/linter/releases)
+[![GitHub](https://img.shields.io/github/license/srlearn/linter)](https://github.com/srlearn/linter/blob/main/LICENSE)
 [![Test Parsing](https://github.com/srlearn/linter/actions/workflows/package-test.yml/badge.svg)](https://github.com/srlearn/linter/actions/workflows/package-test.yml)
 
-## Usage
+## Overview
 
 The target is a `linter` binary to help point out issues when tokenizing
 or parsing a dataset.
@@ -49,7 +51,21 @@ line 2:5 missing '(' at 'ata'
 line 2:8 mismatched input '.' expecting {')', ','}
 ```
 
-## Building
+## Usage
+
+### Download a Binary
+
+Precompiled binaries are listed on the
+[GitHub Releases page](https://github.com/srlearn/linter/releases),
+and the latest version can be downloaded with these links:
+
+| Platform | Link |
+| :--- | :--- |
+| Linux/amd64 | [Download](https://github.com/srlearn/linter/releases/latest/download/linter-linux-amd64) |
+| macOS/amd64 | [Download](https://github.com/srlearn/linter/releases/latest/download/linter-darwin-amd64) |
+| Windows/amd64 | [Download](https://github.com/srlearn/linter/releases/latest/download/linter-windows-amd64.exe) |
+
+### Build from Source
 
 Building requires a [Go compiler](https://golang.org/).
 
@@ -75,3 +91,17 @@ allowed are lowercase characters, integers, and underscores.
 a(x_1,y_1).
 b(x_1).
 ```
+
+## Contributions
+
+- [Alexander L. Hayes](https://hayesall.com) - *Indiana University, Bloomington*
+
+Some ideas were taken from the `FOPC_MLN_ILP_Parser` developed by
+Jude Shavlik and Trevor Walker (and possibly contributed to by many others
+who went unnamed in the source code). There are a few versions of their
+Tokenizers
+([StreamTokenizerJWS](https://github.com/hayesall/SRLBoost/blob/master/src/main/java/edu/wisc/cs/will/FOPC_MLN_ILP_Parser/StreamTokenizerJWS.java)
+and
+[StreamTokenizerTAW](https://github.com/hayesall/SRLBoost/blob/master/src/main/java/edu/wisc/cs/will/FOPC_MLN_ILP_Parser/StreamTokenizerTAW.java))
+and [Parser](https://github.com/hayesall/SRLBoost/blob/master/src/main/java/edu/wisc/cs/will/FOPC_MLN_ILP_Parser/FileParser.java)
+currently used in other projects.
