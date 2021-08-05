@@ -38,7 +38,7 @@ LPAREN: '(';
 RPAREN: ')';
 COMMA: ',';
 PERIOD: '.';
-NEWLINE: [\n];
+NEWLINE: '\r' '\n' | '\n' | '\r' ;
 
 fragment DIGIT: [0-9];
 fragment SMALL_LETTER: [a-z];
