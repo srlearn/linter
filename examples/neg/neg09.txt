@@ -1,0 +1,3 @@
+regressionExample(medv(id159),24.3).
+regressionExample(medv(id56),35.4).
+medv(id36,5).
