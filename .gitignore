@@ -1,6 +1,7 @@
 # Build Target
 .antlr
 linter
+dist
 
 # Binaries for programs and plugins
 *.exe
