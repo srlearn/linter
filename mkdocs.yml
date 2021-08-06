@@ -31,6 +31,7 @@ plugins:
   - mkdocstrings:
       watch:
         - README.md
+  - git-revision-date-localized
 
 nav:
   - Home: index.md
