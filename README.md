@@ -51,6 +51,22 @@ line 2:5 missing '(' at 'ata'
 line 2:8 mismatched input '.' expecting {')', ','}
 ```
 
+### Example 3: Regression Examples
+
+The parser can also look for `regressionExample` values, used in regression
+data sets.
+
+The parser **will not** check whether an *entire* dataset is correct
+(`regressionExample` in labeled as positive, empty negative examples, and
+facts). But this could be accomplished fairly easily elsewhere.
+
+```prolog
+regressionExample(medv(id100),33.2).
+regressionExample(medv(id101),27.5).
+regressionExample(medv(id10),18.9).
+regressionExample(medv(id102),26.5).
+```
+
 ## Usage
 
 ### Download a Binary
