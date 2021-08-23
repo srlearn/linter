@@ -51,7 +51,7 @@ line 2:5 missing '(' at 'ata'
 line 2:8 mismatched input '.' expecting {')', ','}
 ```
 
-### Example 3: Regression Examples
+**Example 3: Regression Examples**
 
 The parser can also look for `regressionExample` values, used in regression
 data sets.
