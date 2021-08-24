@@ -433,42 +433,42 @@ tool which can be used to lint for problems in dataset formatting.</p>
 or parsing a dataset.</p>
 <p><strong>Example 1: No Errors</strong></p>
 <p>When the dataset is well-formatted, nothing is returned:</p>
-<pre><code class="language-prolog">smokes(person1).
-friends(person1,person2).
-friends(person2,person1).
-</code></pre>
-<pre><code class="language-console">./linter -tokens -file=examples/pos/pos1.txt
-./linter -file=examples/pos/pos1.txt
-# (No output for either case)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nf">smokes</span><span class="p">(</span><span class="s s-Atom">person1</span><span class="p">).</span>
+<span class="nf">friends</span><span class="p">(</span><span class="s s-Atom">person1</span><span class="p">,</span><span class="s s-Atom">person2</span><span class="p">).</span>
+<span class="nf">friends</span><span class="p">(</span><span class="s s-Atom">person2</span><span class="p">,</span><span class="s s-Atom">person1</span><span class="p">).</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">./linter -tokens -file=examples/pos/pos1.txt</span>
+<span class="go">./linter -file=examples/pos/pos1.txt</span>
+<span class="gp"># </span><span class="o">(</span>No output <span class="k">for</span> either <span class="k">case</span><span class="o">)</span>
+</code></pre></div>
 <p><strong>Example 2: Bad Data</strong></p>
 <p>When there is something in the data that cannot be recognized, problems
 are directed to stderr:</p>
-<pre><code>friends(person1,person2).
+<div class="highlight"><pre><span></span><code>friends(person1,person2).
 Bad Data.
-</code></pre>
-<pre><code class="language-console">./linter -tokens -file=examples/neg/neg1.txt
-line 2:0 token recognition error at: 'B'
-line 2:3 token recognition error at: ' '
-line 2:4 token recognition error at: 'D'
-./linter -file=examples/neg/neg1.txt
-line 2:0 token recognition error at: 'B'
-line 2:3 token recognition error at: ' '
-line 2:4 token recognition error at: 'D'
-line 2:5 missing '(' at 'ata'
-line 2:8 mismatched input '.' expecting {')', ','}
-</code></pre>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="go">./linter -tokens -file=examples/neg/neg1.txt</span>
+<span class="go">line 2:0 token recognition error at: &#39;B&#39;</span>
+<span class="go">line 2:3 token recognition error at: &#39; &#39;</span>
+<span class="go">line 2:4 token recognition error at: &#39;D&#39;</span>
+<span class="go">./linter -file=examples/neg/neg1.txt</span>
+<span class="go">line 2:0 token recognition error at: &#39;B&#39;</span>
+<span class="go">line 2:3 token recognition error at: &#39; &#39;</span>
+<span class="go">line 2:4 token recognition error at: &#39;D&#39;</span>
+<span class="go">line 2:5 missing &#39;(&#39; at &#39;ata&#39;</span>
+<span class="go">line 2:8 mismatched input &#39;.&#39; expecting {&#39;)&#39;, &#39;,&#39;}</span>
+</code></pre></div>
 <p><strong>Example 3: Regression Examples</strong></p>
 <p>The parser can also look for <code>regressionExample</code> values, used in regression
 data sets.</p>
 <p>The parser <strong>will not</strong> check whether an <em>entire</em> dataset is correct
 (<code>regressionExample</code> in labeled as positive, empty negative examples, and
 facts). But this could be accomplished fairly easily elsewhere.</p>
-<pre><code class="language-prolog">regressionExample(medv(id100),33.2).
-regressionExample(medv(id101),27.5).
-regressionExample(medv(id10),18.9).
-regressionExample(medv(id102),26.5).
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nf">regressionExample</span><span class="p">(</span><span class="nf">medv</span><span class="p">(</span><span class="s s-Atom">id100</span><span class="p">),</span><span class="mf">33.2</span><span class="p">).</span>
+<span class="nf">regressionExample</span><span class="p">(</span><span class="nf">medv</span><span class="p">(</span><span class="s s-Atom">id101</span><span class="p">),</span><span class="mf">27.5</span><span class="p">).</span>
+<span class="nf">regressionExample</span><span class="p">(</span><span class="nf">medv</span><span class="p">(</span><span class="s s-Atom">id10</span><span class="p">),</span><span class="mf">18.9</span><span class="p">).</span>
+<span class="nf">regressionExample</span><span class="p">(</span><span class="nf">medv</span><span class="p">(</span><span class="s s-Atom">id102</span><span class="p">),</span><span class="mf">26.5</span><span class="p">).</span>
+</code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <h3 id="download-a-binary">Download a Binary<a class="headerlink" href="#download-a-binary" title="Permanent link">&para;</a></h3>
 <p>Precompiled binaries are listed on the
@@ -498,20 +498,20 @@ and the latest version can be downloaded with these links:</p>
 </table>
 <h3 id="build-from-source">Build from Source<a class="headerlink" href="#build-from-source" title="Permanent link">&para;</a></h3>
 <p>Building requires a <a href="https://golang.org/">Go compiler</a>.</p>
-<pre><code>cd cmd
+<div class="highlight"><pre><span></span><code>cd cmd
 go build
-</code></pre>
+</code></pre></div>
 <p>A copy of the generated ANTLR parser files are committed to the repository,
 and rebuilding them requires an <a href="https://www.antlr.org/">ANTLR Parser Generator</a>.</p>
-<pre><code>make clean
+<div class="highlight"><pre><span></span><code>make clean
 make linter
-</code></pre>
+</code></pre></div>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <p>This grammar is extremely conservative currently: the only tokens
 allowed are lowercase characters, integers, and underscores.</p>
-<pre><code class="language-prolog">a(x_1,y_1).
-b(x_1).
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nf">a</span><span class="p">(</span><span class="s s-Atom">x_1</span><span class="p">,</span><span class="s s-Atom">y_1</span><span class="p">).</span>
+<span class="nf">b</span><span class="p">(</span><span class="s s-Atom">x_1</span><span class="p">).</span>
+</code></pre></div>
 <h2 id="contributions">Contributions<a class="headerlink" href="#contributions" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://hayesall.com">Alexander L. Hayes</a> - <em>Indiana University, Bloomington</em></li>

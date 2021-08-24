@@ -297,74 +297,74 @@
                 
                 <h1 id="grammar">Grammar<a class="headerlink" href="#grammar" title="Permanent link">&para;</a></h1>
 <p>A full copy of the ANTLR grammar is copied here.</p>
-<pre><code>// Copyright 2021 Alexander L. Hayes
-// Apache 2.0 License
+<div class="highlight"><pre><span></span><code><span class="c">// Copyright 2021 Alexander L. Hayes</span><span class="w"></span>
+<span class="c">// Apache 2.0 License</span><span class="w"></span>
 
-/*
-Some portions of this are based on the ANTLR `prolog.g4` example,
-Copyright (c) 2013, Tom Everett
-Used under the terms of a 3-Clause BSD License, copied below:
+<span class="c">/*</span>
+<span class="c">Some portions of this are based on the ANTLR `prolog.g4` example,</span>
+<span class="c">Copyright (c) 2013, Tom Everett</span>
+<span class="c">Used under the terms of a 3-Clause BSD License, copied below:</span>
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
+<span class="c">Redistribution and use in source and binary forms, with or without</span>
+<span class="c">modification, are permitted provided that the following conditions</span>
+<span class="c">are met:</span>
 
-1. Redistributions of source code must retain the above copyright
-   notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
-   notice, this list of conditions and the following disclaimer in the
-   documentation and/or other materials provided with the distribution.
-3. Neither the name of Tom Everett nor the names of its contributors
-   may be used to endorse or promote products derived from this software
-   without specific prior written permission.
+<span class="c">1. Redistributions of source code must retain the above copyright</span>
+<span class="c">   notice, this list of conditions and the following disclaimer.</span>
+<span class="c">2. Redistributions in binary form must reproduce the above copyright</span>
+<span class="c">   notice, this list of conditions and the following disclaimer in the</span>
+<span class="c">   documentation and/or other materials provided with the distribution.</span>
+<span class="c">3. Neither the name of Tom Everett nor the names of its contributors</span>
+<span class="c">   may be used to endorse or promote products derived from this software</span>
+<span class="c">   without specific prior written permission.</span>
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+<span class="c">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<span class="c">&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<span class="c">LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR</span>
+<span class="c">A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT</span>
+<span class="c">HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<span class="c">SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</span>
+<span class="c">LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span class="c">DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span class="c">THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span class="c">(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<span class="c">OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="c">*/</span><span class="w"></span>
 
-grammar ILPLang;
+<span class="k">grammar</span><span class="w"> </span><span class="nc">ILPLang</span><span class="p">;</span><span class="w"></span>
 
-LPAREN: '(';
-RPAREN: ')';
-COMMA: ',';
-PERIOD: '.';
-NEWLINE: '\r' '\n' | '\n' | '\r' ;
+<span class="nl">LPAREN</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;(&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nl">RPAREN</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nl">COMMA</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nl">PERIOD</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="nl">NEWLINE</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;\r&#39;</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;\r&#39;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
-fragment DIGIT: [0-9];
-fragment SMALL_LETTER: [a-z];
-fragment ALPHANUMERIC
-    : SMALL_LETTER
-    | DIGIT
-    | '_'
-    ;
+<span class="k">fragment</span><span class="w"> </span><span class="nl">DIGIT</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="x">0-9</span><span class="p">];</span><span class="w"></span>
+<span class="k">fragment</span><span class="w"> </span><span class="nl">SMALL_LETTER</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="x">a-z</span><span class="p">];</span><span class="w"></span>
+<span class="k">fragment</span><span class="w"> </span><span class="nl">ALPHANUMERIC</span><span class="w"></span>
+<span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="no">SMALL_LETTER</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="no">DIGIT</span><span class="w"></span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">;</span><span class="w"></span>
 
-FLOAT: (DIGIT)* PERIOD (DIGIT)+ ;
-INTEGER: (DIGIT)+ ;
+<span class="nl">FLOAT</span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="no">DIGIT</span><span class="o">)*</span><span class="w"> </span><span class="no">PERIOD</span><span class="w"> </span><span class="o">(</span><span class="no">DIGIT</span><span class="o">)+</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="nl">INTEGER</span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="no">DIGIT</span><span class="o">)+</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
-start
-    : (classification_task | regression_task) EOF
-    ;
+<span class="nl">start</span><span class="w"></span>
+<span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="nv">classification_task</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nv">regression_task</span><span class="o">)</span><span class="w"> </span><span class="no">EOF</span><span class="w"></span>
+<span class="w">    </span><span class="p">;</span><span class="w"></span>
 
-classification_task: (term)* ;
-regression_task: (regression_term)* ;
+<span class="nl">classification_task</span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="nv">term</span><span class="o">)*</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="nl">regression_task</span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="nv">regression_term</span><span class="o">)*</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
-// This recognizes both relations and entities.
-// The grammar would be more generally useful if this recognized entities and
-// relations on those entities.
-OBJECT: (ALPHANUMERIC)+;
+<span class="c">// This recognizes both relations and entities.</span><span class="w"></span>
+<span class="c">// The grammar would be more generally useful if this recognized entities and</span><span class="w"></span>
+<span class="c">// relations on those entities.</span><span class="w"></span>
+<span class="nl">OBJECT</span><span class="p">:</span><span class="w"> </span><span class="o">(</span><span class="no">ALPHANUMERIC</span><span class="o">)+</span><span class="p">;</span><span class="w"></span>
 
-term: OBJECT LPAREN OBJECT (COMMA (OBJECT | INTEGER))* RPAREN PERIOD NEWLINE;
-regression_term: 'regressionExample' LPAREN OBJECT LPAREN OBJECT RPAREN COMMA (FLOAT | INTEGER) RPAREN PERIOD NEWLINE;
-</code></pre>
+<span class="nl">term</span><span class="p">:</span><span class="w"> </span><span class="no">OBJECT</span><span class="w"> </span><span class="no">LPAREN</span><span class="w"> </span><span class="no">OBJECT</span><span class="w"> </span><span class="o">(</span><span class="no">COMMA</span><span class="w"> </span><span class="o">(</span><span class="no">OBJECT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">INTEGER</span><span class="o">))*</span><span class="w"> </span><span class="no">RPAREN</span><span class="w"> </span><span class="no">PERIOD</span><span class="w"> </span><span class="no">NEWLINE</span><span class="p">;</span><span class="w"></span>
+<span class="nl">regression_term</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;regressionExample&#39;</span><span class="w"> </span><span class="no">LPAREN</span><span class="w"> </span><span class="no">OBJECT</span><span class="w"> </span><span class="no">LPAREN</span><span class="w"> </span><span class="no">OBJECT</span><span class="w"> </span><span class="no">RPAREN</span><span class="w"> </span><span class="no">COMMA</span><span class="w"> </span><span class="o">(</span><span class="no">FLOAT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">INTEGER</span><span class="o">)</span><span class="w"> </span><span class="no">RPAREN</span><span class="w"> </span><span class="no">PERIOD</span><span class="w"> </span><span class="no">NEWLINE</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
                 
                   
                     
@@ -373,7 +373,7 @@ regression_term: 'regressionExample' LPAREN OBJECT LPAREN OBJECT RPAREN COMMA (F
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 5, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 24, 2021</span>
       
     
   </small>
